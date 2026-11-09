@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101713" />
+  <title>ISKCON Japa Counter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <h1 class="page-title">ISKCON Japa Counter</h1>
+    </header>
+
+    <section class="counter-panel" aria-label="Japa counter">
+      <div class="panel-heading">
+        <div>
+          <span class="eyebrow">JAPA SESSION</span>
+          <h2>Japa mala</h2>
+        </div>
+        <div class="status">
+          <span class="status-light" id="statusLight" aria-hidden="true"></span>
+          <span id="statusText">READY</span>
+        </div>
+      </div>
+
+      <div class="dial-wrap">
+        <svg class="dial" viewBox="0 0 360 360" role="img" aria-label="108 bead progress dial">
+          <defs>
+            <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <circle class="dial-track" cx="180" cy="180" r="142" />
+          <g id="beadMarks"></g>
+          <circle class="dial-inner" cx="180" cy="180" r="116" />
+        </svg>
+        <div class="dial-center">
+          <span class="dial-kicker">BEAD COUNT</span>
+          <div class="digital-count" id="countDisplay" aria-live="polite">000</div>
+          <span class="dial-caption">OF 108</span>
+          <div class="round-chip"><span class="round-dot"></span><span id="roundDisplay">0 ROUNDS</span></div>
+        </div>
+      </div>
+
+      <div class="progress-meta">
+        <span>ROUND PROGRESS</span>
+        <strong id="progressPercent">0%</strong>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+      <button class="count-button" id="countButton" type="button">
+        <span class="button-led" aria-hidden="true"></span>
+        <span class="button-label">COUNT</span>
+        <span class="button-sub">TAP TO COUNT ONE MANTRA</span>
+      </button>
+
+      <div class="secondary-actions">
+        <button class="text-button" id="undoButton" type="button" disabled>↶ Undo last</button>
+        <button class="text-button reset-button" id="resetButton" type="button">Reset session</button>
+      </div>
+    </section>
+
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
